@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container h-100 d-flex justify-content-center align-items-center">
+  <div class="col-md-6">
+    <h1 class="text-center mb-4">Configuración de usuario</h1>
+    {% if error_message %}
+    <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+    {% endif %} {% if success_message %}
+    <div class="alert alert-success" role="alert">{{ success_message }}</div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value="{{ user.username }}"
+          class="form-control form-control-lg"
+          placeholder="Nombre de usuario"
+          {%
+          if
+          error_message
+          %}readonly{%
+          endif
+          %}
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          value="{{ user.first_name }}"
+          class="form-control form-control-lg"
+          placeholder="Nombre"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          value="{{ user.last_name }}"
+          class="form-control form-control-lg"
+          placeholder="Apellido"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="{{ user.email }}"
+          class="form-control form-control-lg"
+          placeholder="Correo electrónico"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control form-control-lg"
+          placeholder="Contraseña nueva (opcional)"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
