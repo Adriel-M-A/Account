@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script>
+    {% load bootstrap4 %} {% bootstrap_css %}
     <title>Document</title>
   </head>
   <body>
@@ -61,4 +56,5 @@
     </nav>
     {% block content %}{% endblock content %}
   </body>
+  {% bootstrap_javascript jquery='full' %}
 </html>
