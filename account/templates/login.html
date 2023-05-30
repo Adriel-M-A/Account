@@ -1,6 +1,6 @@
 {% extends 'base_vacia.html' %} {% block content %}
 <div class="container h-100 d-flex justify-content-center align-items-center">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <h1 class="text-center mb-4">Iniciar sesión</h1>
     {% if error_message %}
     <div class="alert alert-danger" role="alert">{{ error_message }}</div>
@@ -24,6 +24,22 @@
           placeholder="Contraseña"
           required
         />
+      </div>
+      <div
+        class="form-group form-check d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <input
+            type="checkbox"
+            name="remember_me"
+            class="form-check-input"
+            id="rememberMeCheck"
+          />
+          <label class="form-check-label" for="rememberMeCheck"
+            >Recuérdame</label
+          >
+        </div>
+        <a href="">¿No recuerdas tu contraseña?</a>
       </div>
       <button type="submit" class="btn btn-primary btn-lg btn-block">
         Iniciar sesión
